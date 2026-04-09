@@ -367,7 +367,7 @@ app.post('/api/invoices', authenticateToken, async (req, res) => {
     if (newData.type === 'Estimate') {
       prefix = 'EST-';
     } else if (newData.type === 'Invoice') {
-      prefix = newData.gstAvailable ? 'SRE-' : 'SRI-';
+      prefix = newData.gstAvailable ? 'GST-' : 'INV-';
     } else {
       logger.error(`Invalid type received in POST /api/invoices: ${newData.type}`);
       return res.status(400).json({ message: "Invalid document type provided." });
@@ -569,8 +569,8 @@ app.post('/api/invoices/:id/convert', authenticateToken, async (req, res) => {
       return res.status(400).send('Estimate has already been converted.');
     }
 
-    // Generate a new Invoice ID (SRE- or SRI-) based on current FY
-    const invoicePrefix = estimate.gstAvailable ? 'SRE-' : 'SRI-';
+    // Generate a new Invoice ID (GST- or INV-) based on current FY
+    const invoicePrefix = estimate.gstAvailable ? 'GST-' : 'INV-';
     const conversionDate = new Date(); // Use today's date for conversion
     const fy = getFinancialYearRange(conversionDate);
 
