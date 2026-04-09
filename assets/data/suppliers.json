@@ -1,0 +1,27 @@
+[
+  {
+    "id": 4,
+    "name": "JB Steels",
+    "contactPerson": "Abishek",
+    "phone": "9600325123",
+    "email": "jbsteels@gmail.com",
+    "address": "sadayankuppam, manali, chennai-600012",
+    "gstin": "33TEG123GH12",
+    "transporterIds": [
+      4
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Shankara building products",
+    "contactPerson": "",
+    "phone": "7230220220",
+    "email": "",
+    "address": "",
+    "gstin": "",
+    "transporterIds": [
+      5,
+      6
+    ]
+  }
+]

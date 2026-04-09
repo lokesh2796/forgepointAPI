@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation PoC Demo</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define Inter font as fallback, though Tailwind loads its own sans-serif stack */
+        :root {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-lg bg-white shadow-2xl rounded-xl p-8 transition-all duration-300">
+            <!-- Header -->
+            <header class="text-center mb-6">
+                <div class="flex items-center justify-center text-indigo-600 mb-2">
+                    <!-- Map Pin SVG Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-800">Geolocation POC</h1>
+                <p class="text-gray-500 mt-1">Fetch current latitude, longitude, and **full address**.</p>
+            </header>
+
+            <!-- Location Status Card -->
+            <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-lg mb-6">
+                <h2 class="text-xl font-semibold text-indigo-700 mb-3 flex items-center">
+                    <span class="mr-2">Location Data</span>
+                    <span id="loading-spinner" class="animate-spin h-5 w-5 border-2 border-indigo-500 border-t-transparent rounded-full hidden"></span>
+                </h2>
+                
+                <div id="initial-message">
+                    <p class="text-gray-600">Click "Locate Me" to begin.</p>
+                </div>
+                
+                <div id="location-data" class="space-y-2 hidden">
+                    <p class="text-gray-800">
+                        <span class="font-medium text-sm text-indigo-600">LATITUDE:</span>
+                        <span id="latitude-output" class="block text-xl font-mono">--</span>
+                    </p>
+                    <p class="text-gray-800">
+                        <span class="font-medium text-sm text-indigo-600">LONGITUDE:</span>
+                        <span id="longitude-output" class="block text-xl font-mono">--</span>
+                    </p>
+                    
+                    <!-- MAP LINK -->
+                    <p class="pt-2">
+                        <a id="map-link" href="#" target="_blank" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800 underline">
+                            View Coordinates on Map (Check Accuracy)
+                        </a>
+                    </p>
+
+                    <!-- ADDRESS FIELD -->
+                    <p class="text-gray-800 border-t border-indigo-300 pt-2 mt-2">
+                        <span class="font-medium text-sm text-indigo-600">FULL ADDRESS:</span>
+                        <span id="address-output" class="block text-base font-normal italic text-gray-700">Waiting for coordinates...</span>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Accuracy Disclaimer -->
+            <div id="accuracy-note" class="p-3 text-xs border border-yellow-300 rounded-lg mb-6 font-medium bg-yellow-100 text-yellow-800">
+                <p class="font-bold mb-1">Accuracy Note:</p>
+                <p>This method uses the Google Geolocation API to look up your coordinates based on your IP address. If the location is off by many kilometers (e.g., 30km), the IP address lookup is inaccurate, as it often points to your ISP's central location. **This is a network limitation, not a code error.**</p>
+            </div>
+
+            <!-- Status Message Box -->
+            <div 
+                id="status-box"
+                class="p-3 text-sm border rounded-lg mb-6 font-medium bg-blue-100 text-blue-800 border-blue-300"
+            >
+                Status: Ready to locate.
+            </div>
+            
+            <!-- Action Button -->
+            <button 
+                id="locate-button"
+                class="w-full py-3 px-4 rounded-lg font-semibold shadow-md transition duration-150 
+                       focus:outline-none focus:ring-4 focus:ring-indigo-500/50 
+                       text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800"
+            >
+                Locate Me Now
+            </button>
+
+            <!-- API Key Note -->
+            <p id="api-key-note" class="mt-2 text-center text-xs text-orange-500 font-medium">
+                🚨 IMPORTANT: This app requires a valid **Google Maps** API key enabled for **Geolocation** and **Geocoding** APIs.
+            </p>
+
+        </div>
+    </div>
+
+    <script>
+        const latitudeOutput = document.getElementById('latitude-output');
+        const longitudeOutput = document.getElementById('longitude-output');
+        const addressOutput = document.getElementById('address-output'); 
+        const statusBox = document.getElementById('status-box');
+        const locateButton = document.getElementById('locate-button');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const initialMessage = document.getElementById('initial-message');
+        const locationData = document.getElementById('location-data');
+        const mapLink = document.getElementById('map-link'); 
+
+        // IMPORTANT: Replace this with your actual Google Maps API Key. 
+        // Must be enabled for Geolocation and Geocoding APIs.
+        const GOOGLE_MAPS_API_KEY = "AIzaSyCt6znS0q-fswJCM7jKcl2IUO7Rvec3tx8"; // REPLACE THIS LINE with your key!
+
+        // Helper function to update the status message and its style
+        function updateStatus(message, type = 'info') {
+            statusBox.textContent = 'Status: ' + message;
+            statusBox.className = 'p-3 text-sm border rounded-lg mb-6 font-medium'; 
+
+            if (type === 'info') {
+                statusBox.classList.add('bg-blue-100', 'text-blue-800', 'border-blue-300');
+            } else if (type === 'error') {
+                statusBox.classList.add('bg-red-100', 'text-red-800', 'border-red-300');
+            } else if (type === 'success') {
+                statusBox.classList.add('bg-green-100', 'text-green-800', 'border-green-300');
+            }
+        }
+
+        // Set loading state
+        function setLoading(isLoading) {
+            locateButton.disabled = isLoading;
+            loadingSpinner.classList.toggle('hidden', !isLoading);
+            locateButton.textContent = isLoading ? 'Fetching...' : 'Locate Me Now';
+            
+            // Toggle button styles for loading state
+            if (isLoading) {
+                locateButton.classList.remove('bg-indigo-600', 'hover:bg-indigo-700', 'active:bg-indigo-800');
+                locateButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+            } else {
+                locateButton.classList.add('bg-indigo-600', 'hover:bg-indigo-700', 'active:bg-indigo-800');
+                locateButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+            }
+        }
+
+        // --- STEP 2: REVERSE GEOCODING (Coordinates to Address) ---
+        // Function to convert coordinates to a human-readable address using Google Maps Geocoding API
+        async function geocodeAddress(lat, lng) {
+            if (GOOGLE_MAPS_API_KEY === "YOUR_GOOGLE_MAPS_API_KEY") {
+                addressOutput.textContent = 'API Key Required: Geocoding skipped.';
+                return;
+            }
+
+            addressOutput.textContent = 'Fetching full address (via Google Maps Geocoding)...';
+            const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${GOOGLE_MAPS_API_KEY}`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.status !== 'OK') {
+                    addressOutput.textContent = `Geocoding failed. Status: ${data.status}.`;
+                    updateStatus(`Address lookup failed: ${data.status}`, 'error');
+                    console.error('Reverse Geocoding Error:', data.status, data.error_message);
+                    return;
+                }
+
+                if (data.results && data.results.length > 0) {
+                    const address = data.results[0].formatted_address;
+                    addressOutput.textContent = address;
+                    updateStatus('Location and Address fetched successfully.', 'success');
+                } else {
+                    addressOutput.textContent = 'No detailed address found for these coordinates.';
+                    updateStatus('Location found, but address lookup failed.', 'error');
+                }
+            } catch (error) {
+                addressOutput.textContent = 'Failed to connect to geocoding service.';
+                updateStatus(`Address lookup failed: ${error.message}`, 'error');
+                console.error('Reverse Geocoding Error:', error);
+            }
+        }
+
+        // --- STEP 1: GET COORDINATES (Replaces navigator.geolocation) ---
+        // Function to get coordinates using Google Geolocation API (IP-based fallback)
+        async function getCoordinatesFromGoogle() {
+            if (GOOGLE_MAPS_API_KEY === "YOUR_GOOGLE_MAPS_API_KEY") {
+                updateStatus('Coordinates failed: Missing Google Maps API Key.', 'error');
+                return null;
+            }
+
+            const url = `https://www.googleapis.com/geolocation/v1/geolocate?key=${GOOGLE_MAPS_API_KEY}`;
+            
+            try {
+                // Sending an empty body forces the API to use the IP address of the request.
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({})
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.location) {
+                    return {
+                        lat: data.location.lat,
+                        lng: data.location.lng,
+                        accuracy: data.accuracy 
+                    };
+                } else {
+                    throw new Error(data.error?.message || 'Failed to get location from Google Geolocation API.');
+                }
+            } catch (error) {
+                updateStatus(`Failed to get coordinates: ${error.message}. Check console for details.`, 'error');
+                console.error('Google Geolocation Error:', error);
+                return null;
+            }
+        }
+
+        // --- MAIN BUTTON HANDLER ---
+        async function onLocateMe() {
+            setLoading(true);
+            updateStatus('Requesting coordinates via Google Geolocation API (IP lookup)...', 'info');
+            
+            // 1. Get Coordinates from Google API
+            const coords = await getCoordinatesFromGoogle();
+
+            if (coords) {
+                const { lat, lng } = coords;
+
+                // 2. Display Coordinates
+                latitudeOutput.textContent = lat.toFixed(4);
+                longitudeOutput.textContent = lng.toFixed(4);
+                mapLink.href = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+                
+                updateStatus('Coordinates fetched. Fetching full address...', 'info');
+                initialMessage.classList.add('hidden');
+                locationData.classList.remove('hidden');
+
+                // 3. Get Address (Reverse Geocoding)
+                await geocodeAddress(lat, lng);
+            } else {
+                // Error already handled inside getCoordinatesFromGoogle
+                locationData.classList.add('hidden');
+                initialMessage.classList.remove('hidden');
+                addressOutput.textContent = 'Waiting for coordinates...';
+            }
+            setLoading(false); 
+        }
+
+        // Event listener for the button
+        locateButton.addEventListener('click', onLocateMe);
+
+    </script>
+</body>
+</html>

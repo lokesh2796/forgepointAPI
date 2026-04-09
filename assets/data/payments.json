@@ -1,0 +1,98 @@
+[
+  {
+    "id": 9,
+    "invoiceId": "SRI-001",
+    "customerId": 4,
+    "date": "2025-09-27",
+    "amount": 100,
+    "mode": "Cash"
+  },
+  {
+    "id": 8,
+    "invoiceId": "SRI-001",
+    "customerId": 4,
+    "date": "2025-09-27",
+    "amount": 500,
+    "mode": "Cash"
+  },
+  {
+    "id": 7,
+    "invoiceId": "SRI-001",
+    "customerId": 4,
+    "date": "2025-09-27",
+    "amount": 1000,
+    "mode": "Cash"
+  },
+  {
+    "id": 6,
+    "invoiceId": "SRI-001",
+    "customerId": 4,
+    "date": "2025-09-27",
+    "amount": 7200,
+    "mode": "Cash"
+  },
+  {
+    "id": 5,
+    "invoiceId": "SRI-001",
+    "customerId": 4,
+    "date": "2025-09-27",
+    "amount": 5000,
+    "mode": "Cash"
+  },
+  {
+    "id": 4,
+    "invoiceId": "SRE-001",
+    "customerId": 6,
+    "date": "2025-09-26",
+    "amount": 43055,
+    "mode": "Cash"
+  },
+  {
+    "id": 3,
+    "invoiceId": "SRE-002",
+    "customerId": 6,
+    "date": "2025-09-26",
+    "amount": 14360,
+    "mode": "Cash"
+  },
+  {
+    "id": 2,
+    "invoiceId": "SRE-001",
+    "customerId": 6,
+    "date": "2025-09-26",
+    "amount": 10000,
+    "mode": "Cash"
+  },
+  {
+    "id": 1,
+    "invoiceId": "SRE-001",
+    "customerId": 6,
+    "date": "2025-09-26",
+    "amount": 15000,
+    "mode": "Cash"
+  },
+  {
+    "id": 10,
+    "customerId": 6,
+    "invoiceId": "SRE-004",
+    "date": "2025-09-27",
+    "amount": 20000,
+    "mode": "Cash"
+  },
+  {
+    "id": 11,
+    "customerId": 4,
+    "invoiceId": "SRI-001",
+    "date": "2025-09-27",
+    "amount": 400,
+    "mode": "Cash"
+  },
+  {
+    "id": 12,
+    "customerId": 6,
+    "invoiceId": "SRE-003",
+    "date": "2025-09-27",
+    "amount": 44600,
+    "mode": "Cash"
+  }
+]

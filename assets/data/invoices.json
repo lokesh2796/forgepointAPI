@@ -1,0 +1,244 @@
+[
+  {
+    "id": "SRE-001",
+    "customer": {
+      "id": 6,
+      "name": "Raja Fabricators",
+      "phone": "9845122545",
+      "gstin": "33BBCC232G1H",
+      "address": "12A, surapet, chennai-600053",
+      "outstandingBalance": 1810
+    },
+    "date": "2025-09-26",
+    "items": [
+      {
+        "productId": 3,
+        "productName": "Mild Steel Sheet (4x8 ft)",
+        "hsn": 46620,
+        "quantity": 150,
+        "price": 120,
+        "total": 18000
+      },
+      {
+        "productId": 4,
+        "productName": "Auto-Darkening Helmet",
+        "hsn": 46620,
+        "quantity": 100,
+        "price": 250,
+        "total": 25000
+      },
+      {
+        "productId": 6,
+        "productName": "Stainless Steel Wire (1kg)",
+        "hsn": 46620,
+        "quantity": 150,
+        "price": 95,
+        "total": 14250
+      }
+    ],
+    "subtotal": 57250,
+    "gstAvailable": true,
+    "cgst": 5152.5,
+    "sgst": 5152.5,
+    "transportCharges": 500,
+    "total": 68055,
+    "amountPaid": 68055,
+    "balanceDue": 0,
+    "status": "Paid"
+  },
+  {
+    "id": "SRE-002",
+    "customer": {
+      "id": 6,
+      "name": "Raja Fabricators",
+      "phone": "9845122545",
+      "gstin": "33BBCC232G1H",
+      "address": "12A, surapet, chennai-600053",
+      "outstandingBalance": 44865
+    },
+    "date": "2025-09-26",
+    "items": [
+      {
+        "productId": 3,
+        "productName": "Mild Steel Sheet (4x8 ft)",
+        "hsn": 46620,
+        "quantity": 100,
+        "price": 120,
+        "total": 12000
+      }
+    ],
+    "subtotal": 12000,
+    "gstAvailable": true,
+    "cgst": 1080,
+    "sgst": 1080,
+    "transportCharges": 200,
+    "total": 14360,
+    "amountPaid": 14360,
+    "balanceDue": 0,
+    "status": "Paid"
+  },
+  {
+    "id": "SRI-001",
+    "customer": {
+      "id": 4,
+      "name": "Krishna Fabricators",
+      "phone": "9123412345",
+      "gstin": "29ABCDE1234F1Z5"
+    },
+    "date": "2025-09-27",
+    "items": [
+      {
+        "productId": 3,
+        "productName": "Mild Steel Sheet (4x8 ft)",
+        "hsn": 46620,
+        "quantity": 100,
+        "price": 120,
+        "total": 12000
+      }
+    ],
+    "subtotal": 14000,
+    "gstAvailable": false,
+    "cgst": 0,
+    "sgst": 0,
+    "transportCharges": 200,
+    "labourCharges": 2000,
+    "total": 14200,
+    "amountPaid": 14200,
+    "balanceDue": 0,
+    "status": "Paid"
+  },
+  {
+    "id": "SRE-003",
+    "customer": {
+      "id": 6,
+      "name": "Raja Fabricators",
+      "phone": "9845122545",
+      "gstin": "33BBCC232G1H",
+      "address": "12A, surapet, chennai-600053",
+      "outstandingBalance": 0
+    },
+    "date": "2025-09-27",
+    "items": [
+      {
+        "productId": 4,
+        "productName": "Auto-Darkening Helmet",
+        "hsn": 46620,
+        "quantity": 150,
+        "price": 250,
+        "total": 37500
+      }
+    ],
+    "subtotal": 37700,
+    "gstAvailable": true,
+    "cgst": 3375,
+    "sgst": 3375,
+    "transportCharges": 150,
+    "labourCharges": 200,
+    "total": 44600,
+    "amountPaid": 44600,
+    "balanceDue": 0,
+    "status": "Paid"
+  },
+  {
+    "id": "SRE-004",
+    "customer": {
+      "id": 6,
+      "name": "Raja Fabricators",
+      "phone": "9845122545",
+      "gstin": "33BBCC232G1H",
+      "address": "12A, surapet, chennai-600053",
+      "outstandingBalance": 44600
+    },
+    "date": "2025-09-27",
+    "items": [
+      {
+        "productId": 4,
+        "productName": "Auto-Darkening Helmet",
+        "hsn": 46620,
+        "quantity": 100,
+        "price": 250,
+        "total": 25000
+      }
+    ],
+    "subtotal": 25000,
+    "gstAvailable": true,
+    "cgst": 2250,
+    "sgst": 2250,
+    "transportCharges": 500,
+    "labourCharges": 0,
+    "total": 30000,
+    "amountPaid": 20000,
+    "balanceDue": 10000,
+    "status": "Partially Paid"
+  },
+  {
+    "id": "SRE-005",
+    "customer": {
+      "id": 4,
+      "name": "Krishna Fabricators",
+      "phone": "9123412345",
+      "gstin": "29ABCDE1234F1Z5",
+      "outstandingBalance": 400
+    },
+    "date": "2025-09-27",
+    "items": [
+      {
+        "productId": 6,
+        "productName": "Stainless Steel Wire (1kg)",
+        "hsn": 46620,
+        "quantity": 150,
+        "price": 95,
+        "total": 14250
+      }
+    ],
+    "subtotal": 19250,
+    "gstAvailable": true,
+    "cgst": 1282.5,
+    "sgst": 1282.5,
+    "transportCharges": 250,
+    "labourCharges": 5000,
+    "total": 22065,
+    "amountPaid": 0,
+    "balanceDue": 22065,
+    "status": "Due"
+  },
+  {
+    "id": "SRI-002",
+    "customer": {
+      "id": 2,
+      "name": "Metal Fabricators Inc.",
+      "phone": "9123456789",
+      "address": "456 Industrial Estate, Chennai",
+      "outstandingBalance": 0
+    },
+    "date": "2025-09-28",
+    "items": [
+      {
+        "productId": 3,
+        "productName": "Mild Steel Sheet (4x8 ft)",
+        "hsn": 46620,
+        "quantity": 150,
+        "price": 120,
+        "total": 18000
+      },
+      {
+        "productId": 5,
+        "productName": "Chipping Hammer",
+        "hsn": 46620,
+        "quantity": 125,
+        "price": 45,
+        "total": 5625
+      }
+    ],
+    "subtotal": 23625,
+    "gstAvailable": false,
+    "cgst": 0,
+    "sgst": 0,
+    "transportCharges": 400,
+    "labourCharges": 0,
+    "total": 24025,
+    "amountPaid": 0,
+    "balanceDue": 24025,
+    "status": "Due"
+  }
+]

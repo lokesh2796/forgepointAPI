@@ -1,0 +1,22 @@
+[  
+  {
+    "id": 1,
+    "name": "Rods",
+    "unit": "kg"
+  },
+  {
+    "id": 2,
+    "name": "consumables",
+    "unit": "piece"
+  },
+  {
+    "id": 3,
+    "name": "sheets",
+    "unit": "sqfeet"
+  },
+  {
+    "id": 4,
+    "name": "test",
+    "unit": "piece"
+  }
+]

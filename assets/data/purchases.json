@@ -1,0 +1,193 @@
+[
+  {
+    "id": "PO-001",
+    "supplier": {
+      "id": 4,
+      "name": "JB Steels",
+      "contactPerson": "Abishek",
+      "phone": "9600325123",
+      "email": "jbsteels@gmail.com",
+      "address": "sadayankuppam, manali, chennai-600012",
+      "gstin": "33TEG123GH12",
+      "transporterIds": [
+        4
+      ]
+    },
+    "date": "2025-09-28",
+    "items": [
+      {
+        "productId": 7,
+        "productName": "12mm MS Square Rod",
+        "quantity": 1500,
+        "purchasePrice": 47.5,
+        "total": 71250
+      }
+    ],
+    "subtotal": 74750,
+    "gstAvailable": true,
+    "cgst": 6727.5,
+    "sgst": 6727.5,
+    "transportCharges": 4000,
+    "labourCharges": 3500,
+    "total": 92205,
+    "status": "Received",
+    "transporterId": 4
+  },
+  {
+    "id": "PO-002",
+    "supplier": {
+      "id": 2,
+      "name": "Industrial Tools & Co.",
+      "contactPerson": "Ravi Kumar",
+      "phone": "9123445678",
+      "email": "contact@industrialtools.co",
+      "address": "22, Industrial Estate, Bangalore",
+      "transporterIds": [
+        2,
+        3
+      ]
+    },
+    "date": "2025-09-29",
+    "items": [
+      {
+        "productId": 5,
+        "productName": "Chipping Hammer",
+        "quantity": 1200,
+        "purchasePrice": 60,
+        "total": 72000
+      }
+    ],
+    "subtotal": 72400,
+    "gstAvailable": true,
+    "cgst": 6516,
+    "sgst": 6516,
+    "transportCharges": 1000,
+    "labourCharges": 400,
+    "total": 86432,
+    "status": "Ordered",
+    "transporterId": 2
+  },
+  {
+    "id": "PO-003",
+    "supplier": {
+      "id": 2,
+      "name": "Industrial Tools & Co.",
+      "contactPerson": "Ravi Kumar",
+      "phone": "9123445678",
+      "email": "contact@industrialtools.co",
+      "address": "22, Industrial Estate, Bangalore",
+      "transporterIds": [
+        2,
+        3
+      ]
+    },
+    "date": "2025-09-28",
+    "items": [
+      {
+        "productId": 3,
+        "productName": "Mild Steel Sheet (4x8 ft)",
+        "quantity": 1000,
+        "purchasePrice": 58.2,
+        "total": 58200
+      },
+      {
+        "productId": 7,
+        "productName": "12mm MS Square Rod",
+        "quantity": 1000,
+        "purchasePrice": 47.5,
+        "total": 47500
+      }
+    ],
+    "subtotal": 107700,
+    "gstAvailable": true,
+    "cgst": 9693,
+    "sgst": 9693,
+    "transportCharges": 5000,
+    "labourCharges": 2000,
+    "total": 132086,
+    "status": "Ordered",
+    "transporterId": 3
+  },
+  {
+    "id": "PO-004",
+    "supplier": {
+      "id": 2,
+      "name": "Industrial Tools & Co.",
+      "contactPerson": "Ravi Kumar",
+      "phone": "9123445678",
+      "email": "contact@industrialtools.co",
+      "address": "22, Industrial Estate, Bangalore",
+      "transporterIds": [
+        2,
+        3
+      ]
+    },
+    "date": "2025-09-28",
+    "items": [
+      {
+        "productId": 3,
+        "productName": "Mild Steel Sheet (4x8 ft)",
+        "quantity": 100,
+        "purchasePrice": 29.5,
+        "total": 2950
+      },
+      {
+        "productId": 7,
+        "productName": "12mm MS Square Rod",
+        "quantity": 1000,
+        "purchasePrice": 47.5,
+        "total": 47500
+      }
+    ],
+    "subtotal": 53450,
+    "gstAvailable": false,
+    "cgst": 0,
+    "sgst": 0,
+    "transportCharges": 4000,
+    "labourCharges": 3000,
+    "total": 57450,
+    "status": "Ordered",
+    "transporterId": 3
+  },
+  {
+    "id": "PO-005",
+    "supplier": {
+      "id": 4,
+      "name": "JB Steels",
+      "contactPerson": "Abishek",
+      "phone": "9600325123",
+      "email": "jbsteels@gmail.com",
+      "address": "sadayankuppam, manali, chennai-600012",
+      "gstin": "33TEG123GH12",
+      "transporterIds": [
+        4
+      ]
+    },
+    "date": "2025-09-27",
+    "items": [
+      {
+        "productId": null,
+        "productName": "MS Square Rod (12mm)",
+        "quantity": 2010,
+        "purchasePrice": 47.5,
+        "total": 95475
+      },
+      {
+        "productId": 1,
+        "productName": "MS Flat (25 mm * 10mm )",
+        "quantity": 1130,
+        "purchasePrice": 51.5,
+        "total": 58195
+      }
+    ],
+    "subtotal": 157170,
+    "gstAvailable": true,
+    "cgst": 14145.3,
+    "sgst": 14145.3,
+    "transportCharges": 4000,
+    "labourCharges": 3500,
+    "total": 189460.59999999998,
+    "status": "Received",
+    "transporterId": 4
+  }
+]

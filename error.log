@@ -1,0 +1,31 @@
+2025-10-24 09:58:13 error: Error in POST /api/invoices: - TypeError: Cannot read properties of undefined (reading '0')
+    at D:\projects\poc\weld-app-updated\nodeServer\server.js:331:46
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-10-24 14:58:10 error: Error in POST /api/invoices: - MongoServerError: E11000 duplicate key error collection: Sample_DB.invoices index: _id_ dup key: { _id: "68fb078fe5c8e01ab97beb9d" }
+    at InsertOneOperation.handleOk (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\operations\insert.js:51:19)
+    at tryOperation (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\operations\execute_operation.js:214:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async executeOperation (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\operations\execute_operation.js:78:16)
+    at async Collection.insertOne (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\collection.js:154:16)
+    at async D:\projects\poc\weld-app-updated\nodeServer\server.js:304:30
+2025-10-24 14:59:16 error: Error in POST /api/invoices: - MongoServerError: E11000 duplicate key error collection: Sample_DB.invoices index: _id_ dup key: { _id: "68fb078fe5c8e01ab97beb9d" }
+    at InsertOneOperation.handleOk (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\operations\insert.js:51:19)
+    at tryOperation (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\operations\execute_operation.js:214:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async executeOperation (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\operations\execute_operation.js:78:16)
+    at async Collection.insertOne (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\collection.js:154:16)
+    at async D:\projects\poc\weld-app-updated\nodeServer\server.js:304:30
+2025-10-29 19:14:22 error: Error in POST /api/invoices: - MongoServerError: Cannot increment with non-numeric argument: {outstandingBalance: "815.19"}
+    at UpdateOneOperation.handleOk (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\operations\update.js:70:19)
+    at tryOperation (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\operations\execute_operation.js:214:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async executeOperation (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\operations\execute_operation.js:78:16)
+    at async Collection.updateOne (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\collection.js:238:16)
+    at async D:\projects\poc\weld-app-updated\nodeServer\server.js:381:13
+2025-10-29 19:16:41 error: Error in POST /api/invoices: - MongoServerError: Cannot increment with non-numeric argument: {outstandingBalance: "815.19"}
+    at UpdateOneOperation.handleOk (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\operations\update.js:70:19)
+    at tryOperation (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\operations\execute_operation.js:214:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async executeOperation (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\operations\execute_operation.js:78:16)
+    at async Collection.updateOne (D:\projects\poc\weld-app-updated\node_modules\mongodb\lib\collection.js:238:16)
+    at async D:\projects\poc\weld-app-updated\nodeServer\server.js:381:13

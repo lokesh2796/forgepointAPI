@@ -1,0 +1,26 @@
+[
+  {
+    "id": "PAY-2025-W2-E4",
+    "weekStartDate": "2025-10-05",
+    "weekEndDate": "2025-10-10",
+    "generatedDate": "2025-10-07",
+    "employeeId": 4,
+    "employeeName": "Anbu",
+    "daysWorked": 4,
+    "grossSalary": 4000,
+    "advancesDeducted": 1100,
+    "netSalary": 2900
+  },
+  {
+    "id": "PAY-2025-W2-E5",
+    "weekStartDate": "2025-10-05",
+    "weekEndDate": "2025-10-10",
+    "generatedDate": "2025-10-07",
+    "employeeId": 5,
+    "employeeName": "Babloo",
+    "daysWorked": 5,
+    "grossSalary": 3750,
+    "advancesDeducted": 0,
+    "netSalary": 3750
+  }
+]

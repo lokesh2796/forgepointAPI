@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "RAJA Fabricators",
+    "phone": "9092098160",
+    "gstin": "",
+    "address": "Surapet",
+    "outstandingBalance": 0
+  },
+  {
+    "id": 2,
+    "name": "Gopi kallikuppam",
+    "phone": "7230220220",
+    "gstin": "",
+    "address": "",
+    "outstandingBalance": 0
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 4,
+    "name": "Anbu",
+    "phone": "8987979799",
+    "dailySalary": 1000
+  },
+  {
+    "id": 5,
+    "name": "Babloo",
+    "phone": "799789997989",
+    "dailySalary": 750
+  }
+]

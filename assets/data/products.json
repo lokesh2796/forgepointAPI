@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "MS Square Rod (12mm)",
+    "categoryId": 1,
+    "hsn": 72149990,
+    "stock": 20,
+    "price": 60
+  },
+  {
+    "id": 2,
+    "name": "MS Flat (25 mm * 10mm )",
+    "categoryId": 1,
+    "hsn": 72142090,
+    "stock": 10,
+    "price": 60
+  },
+  {
+    "id": 3,
+    "name": "MS Square Rod (11mm)",
+    "categoryId": 1,
+    "hsn": 72149990,
+    "stock": 40,
+    "price": 60
+  }
+]

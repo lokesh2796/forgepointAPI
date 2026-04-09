@@ -1,0 +1,20 @@
+[
+  {
+    "id": 2,
+    "employeeId": 4,
+    "amount": 500,
+    "date": "2025-10-06"
+  },
+  {
+    "id": 1,
+    "employeeId": 2,
+    "date": "2025-10-07",
+    "amount": 500
+  },
+  {
+    "id": 3,
+    "employeeId": 4,
+    "amount": 600,
+    "date": "2025-10-06"
+  }
+]
